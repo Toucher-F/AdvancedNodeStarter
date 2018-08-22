@@ -73,4 +73,17 @@ describe("User is not logged in", async () => {
     });
     expect(result).toEqual({ error: "You must log in!" });
   });
+
+  test("User cannot get blog list", async () => {
+    const result = await page.evaluate(() => {
+      return fetch("/api/blogs", {
+        method: "GET",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(res => res.json());
+    });
+    expect(result).toEqual({ error: "You must log in!" });
+  });
 });
