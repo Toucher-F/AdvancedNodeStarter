@@ -15,6 +15,7 @@ class BlogShow extends Component {
             "https://s3.ca-central-1.amazonaws.com/toucher-blog-bucket/" +
             this.props.blog.imageUrl
           }
+          alt={this.props.blog.imageUrl}
         />
       );
     }
